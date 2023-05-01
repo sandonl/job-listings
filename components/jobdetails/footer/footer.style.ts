@@ -1,8 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
-const styles = StyleSheet.create({
+interface StyleSheetType {
+  container: ViewStyle;
+  likeBtn: ViewStyle;
+  likeBtnImage: ViewStyle;
+  applyBtn: ViewStyle;
+  applyBtnText: TextStyle;
+}
+
+const styles = StyleSheet.create<StyleSheetType>({
   container: {
     position: "absolute",
     bottom: 0,

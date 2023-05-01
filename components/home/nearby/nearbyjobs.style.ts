@@ -1,8 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
-const styles = StyleSheet.create({
+interface StyleSheetType {
+  container: ViewStyle;
+  header: ViewStyle;
+  headerTitle: TextStyle;
+  headerBtn: ViewStyle;
+  cardsContainer: ViewStyle;
+}
+
+const styles = StyleSheet.create<StyleSheetType>({
   container: {
     marginTop: SIZES.xLarge,
   },

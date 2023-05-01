@@ -1,8 +1,17 @@
-import { StyleSheet } from "react-native";
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 
-const styles = StyleSheet.create({
+interface StyleSheetType {
+  container: ViewStyle;
+  logoContainer: ViewStyle;
+  logImage: ImageStyle;
+  textContainer: ViewStyle;
+  jobName: TextStyle;
+  jobType: TextStyle;
+}
+
+const styles = StyleSheet.create<StyleSheetType>({
   container: {
     flex: 1,
     justifyContent: "space-between",

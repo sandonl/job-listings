@@ -1,6 +1,15 @@
-import { StyleSheet } from "react-native";
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
+
+interface StyleSheetType {
+  container: ViewStyle;
+  title: TextStyle;
+  pointsContainer: ViewStyle;
+  pointWrapper: ViewStyle;
+  pointDot: ViewStyle;
+  pointText: TextStyle;
+}
 
 const styles = StyleSheet.create({
   container: {
