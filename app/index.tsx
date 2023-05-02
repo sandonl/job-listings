@@ -1,12 +1,43 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, ScrollView } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Link, Stack, useRouter } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { COLORS, SIZES, icons, images } from "../constants";
+import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn";
+import { Nearbyjobs, Popularjobs, Welcome } from "../components";
 
 const Home = () => {
+  const router = useRouter();
+
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text> Home </Text>
-    </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
+          ),
+          headerRight: () => (
+            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
+          ),
+          headerTitle: "",
+        }}
+      />
+
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            flex: 1,
+            padding: SIZES.medium,
+          }}
+        >
+          <Welcome />
+          <Popularjobs />
+          <Nearbyjobs />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

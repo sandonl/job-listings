@@ -9,7 +9,7 @@ interface StyleSheetType {
   contextText: TextStyle;
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create<StyleSheetType>({
   container: {
     marginTop: SIZES.large,
     backgroundColor: "#FFF",

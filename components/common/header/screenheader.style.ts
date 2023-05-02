@@ -3,7 +3,7 @@ import { ImageStyle, StyleSheet, ViewStyle } from "react-native";
 import { COLORS, SIZES } from "../../../constants";
 
 interface StylesProps {
-  dimension: number;
+  dimension: string;
 }
 
 interface StyleSheetType {
