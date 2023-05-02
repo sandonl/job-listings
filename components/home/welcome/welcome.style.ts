@@ -1,10 +1,10 @@
-import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 interface StylesProps {
   activeJobType: string;
-  item: string;
+  item?: string;
 }
 
 interface StyleSheetType {
@@ -15,7 +15,7 @@ interface StyleSheetType {
   searchWrapper: ViewStyle;
   searchInput: TextStyle;
   searchBtn: ViewStyle;
-  searchBtnImage: ViewStyle;
+  searchBtnImage: ImageStyle;
   tabsContainer: ViewStyle;
   tab: ViewStyle;
   tabText: TextStyle;
@@ -23,7 +23,7 @@ interface StyleSheetType {
 
 type StylesFunctionProps = (props: StylesProps) => StyleSheetType;
 
-const styles: StylesFunctionProps = ({ activeJobType, item }) =>
+const getStyles: StylesFunctionProps = ({ activeJobType, item }) =>
   StyleSheet.create<StyleSheetType>({
     container: {
       width: "100%",
@@ -91,4 +91,4 @@ const styles: StylesFunctionProps = ({ activeJobType, item }) =>
     },
   });
 
-export default styles;
+export default getStyles;
