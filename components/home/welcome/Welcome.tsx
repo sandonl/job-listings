@@ -6,20 +6,26 @@ import {
   Image,
   TextInput,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 
 import getStyles from "./welcome.style";
 import { useRouter } from "expo-router";
 import icons from "../../../constants/icons";
+import { SIZES } from "../../../constants";
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
 const Welcome = () => {
   const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState("Full-time");
-  const [item, setType] = useState("");
+  const [activeJobType, setActiveJobType] = useState<string>("Full-time");
+  const [searchText, setSearchText] = useState<string>();
 
   const styles = getStyles({ activeJobType });
+
+  const handleChange = () => {
+    setSearchText(searchText);
+  };
 
   return (
     <View>
@@ -32,7 +38,7 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=""
+            value={searchText}
             onChange={() => {}}
             placeholder="What are you looking for?"
           />
@@ -62,6 +68,9 @@ const Welcome = () => {
               </Text>
             </TouchableOpacity>
           )}
+          keyExtractor={(item) => item}
+          contentContainerStyle={{ columnGap: SIZES.small }}
+          horizontal
         />
       </View>
     </View>
