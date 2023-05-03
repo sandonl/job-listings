@@ -25,7 +25,7 @@ interface StyleSheetType {
 
 type StylesFunctionProps = (props: StylesProps) => StyleSheetType;
 
-const styles: StylesFunctionProps = ({ selectedJob, item }) =>
+const getStyles: StylesFunctionProps = ({ selectedJob, item }) =>
   StyleSheet.create<StyleSheetType>({
     container: {
       width: 250,
@@ -80,4 +80,4 @@ const styles: StylesFunctionProps = ({ selectedJob, item }) =>
     },
   });
 
-export default styles;
+export default getStyles;
