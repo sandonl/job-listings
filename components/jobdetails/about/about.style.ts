@@ -6,7 +6,7 @@ interface StyleSheetType {
   container: ViewStyle;
   headText: TextStyle;
   contentBox: ViewStyle;
-  contextText: TextStyle;
+  contentText: TextStyle;
 }
 
 const styles = StyleSheet.create<StyleSheetType>({
@@ -24,7 +24,7 @@ const styles = StyleSheet.create<StyleSheetType>({
   contentBox: {
     marginVertical: SIZES.small,
   },
-  contextText: {
+  contentText: {
     fontSize: SIZES.medium - 2,
     color: COLORS.gray,
     fontFamily: FONT.regular,

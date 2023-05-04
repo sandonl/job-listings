@@ -3,7 +3,7 @@ import { StyleSheet, TextStyle, View, ViewStyle } from "react-native";
 import { COLORS, SHADOWS, SIZES } from "../../../constants";
 
 interface StylesProps {
-  name: string;
+  name?: string;
   activeTab: string;
 }
 
@@ -15,7 +15,7 @@ interface StyleSheetType {
 
 type StylesFunctionProps = (props: StylesProps) => StyleSheetType;
 
-const styles: StylesFunctionProps = ({ name, activeTab }) =>
+const getStyles: StylesFunctionProps = ({ name, activeTab }) =>
   StyleSheet.create<StyleSheetType>({
     container: {
       marginTop: SIZES.small,
@@ -37,4 +37,4 @@ const styles: StylesFunctionProps = ({ name, activeTab }) =>
     },
   });
 
-export default styles;
+export default getStyles;
