@@ -1,11 +1,11 @@
-import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from "react-native";
 
 import { COLORS, FONT, SIZES } from "../../../constants";
 
 interface StyleSheetType {
   container: ViewStyle;
   likeBtn: ViewStyle;
-  likeBtnImage: ViewStyle;
+  likeBtnImage: ImageStyle;
   applyBtn: ViewStyle;
   applyBtnText: TextStyle;
 }
