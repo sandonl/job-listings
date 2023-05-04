@@ -5,7 +5,7 @@ import { COLORS, FONT, SIZES } from "../../../constants";
 interface StyleSheetType {
   container: ViewStyle;
   logoBox: ViewStyle;
-  logoImage: ViewStyle;
+  logoImage: ImageStyle;
   jobTitleBox: ViewStyle;
   jobTitle: TextStyle;
   companyInfoBox: ViewStyle;

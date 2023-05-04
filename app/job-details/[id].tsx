@@ -17,6 +17,8 @@ import { icons } from "../../constants";
 
 interface JobDetailsProps {}
 
+const tabs = ["About", "Qualifications", "Responsibilities"];
+
 const JobDetails = () => {
   const params = useSearchParams();
   const router = useRouter();
@@ -26,6 +28,9 @@ const JobDetails = () => {
   });
 
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  console.log(data);
 
   const onRefresh = () => {};
 
@@ -64,7 +69,12 @@ const JobDetails = () => {
             <Text> No data found </Text>
           ) : (
             <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
-              <Company />
+              <Company
+                companyLogo={data[0].employer_logo}
+                jobTitle={data[0].job_title}
+                companyName={data[0].employer_name}
+                location={data[0].job_country}
+              />
               <JobTabs />
             </View>
           )}
