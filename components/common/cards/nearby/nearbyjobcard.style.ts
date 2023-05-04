@@ -5,7 +5,7 @@ import { COLORS, SHADOWS, SIZES } from "../../../../constants";
 interface StyleSheetType {
   container: ViewStyle;
   logoContainer: ViewStyle;
-  logImage: ImageStyle;
+  logoImage: ImageStyle;
   textContainer: ViewStyle;
   jobName: TextStyle;
   jobType: TextStyle;
@@ -31,7 +31,7 @@ const styles = StyleSheet.create<StyleSheetType>({
     justifyContent: "center",
     alignItems: "center",
   },
-  logImage: {
+  logoImage: {
     width: "70%",
     height: "70%",
   },
