@@ -1,10 +1,10 @@
-import { View, Text, Pressable, ScrollView } from "react-native";
+import { Stack, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Link, Stack, useRouter } from "expo-router";
+import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLORS, SIZES, icons, images } from "../constants";
-import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn";
 import { Nearbyjobs, Popularjobs, Welcome } from "../components";
+import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn";
+import { COLORS, SIZES, icons, images } from "../constants";
 
 const Home = () => {
   const router = useRouter();

@@ -1,18 +1,11 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ActivityIndicator,
-  FlatList,
-} from "react-native";
-import PopularJobCard from "../../common/cards/popular/PopularJobCard";
+import React from "react";
+import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
 
-import styles from "./nearbyjobs.style";
 import { useRouter } from "expo-router";
-import { COLORS, SIZES } from "../../../constants";
+import { COLORS } from "../../../constants";
 import useFetch from "../../../hooks/useFetch";
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard";
+import styles from "./nearbyjobs.style";
 
 const Nearbyjobs = () => {
   const nearbyJobSearch = "React Developer";
@@ -23,13 +16,6 @@ const Nearbyjobs = () => {
     num_pages: 1,
     radius: "2",
   });
-
-  const [selectedJob, setSelectedJob] = useState();
-
-  const handleCardPress = (item) => {
-    router.push(`/job-details/${item.job_id}`);
-    setSelectedJob(item.job_id);
-  };
 
   return (
     <View style={styles.container}>
