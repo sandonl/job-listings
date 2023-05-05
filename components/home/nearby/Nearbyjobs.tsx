@@ -15,10 +15,13 @@ import useFetch from "../../../hooks/useFetch";
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard";
 
 const Nearbyjobs = () => {
+  const nearbyJobSearch = "React Developer";
+
   const router = useRouter();
   const { data, isLoading, error } = useFetch("search", {
-    query: "React Developer",
+    query: nearbyJobSearch,
     num_pages: 1,
+    radius: "2",
   });
 
   const [selectedJob, setSelectedJob] = useState();
@@ -33,7 +36,14 @@ const Nearbyjobs = () => {
       <View style={styles.header}>
         <Text style={styles.headerTitle}> Nearby Jobs </Text>
         <TouchableOpacity>
-          <Text style={styles.headerBtn}> Show All </Text>
+          <Text
+            style={styles.headerBtn}
+            onPress={() => {
+              router.push(`/search/${nearbyJobSearch}`);
+            }}
+          >
+            Show All
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.cardsContainer}>

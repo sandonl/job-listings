@@ -1,31 +1,31 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-  TextInput,
   FlatList,
-  SafeAreaView,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-import getStyles from "./welcome.style";
 import { useRouter } from "expo-router";
-import icons from "../../../constants/icons";
 import { SIZES } from "../../../constants";
+import icons from "../../../constants/icons";
+import getStyles from "./welcome.style";
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
-const Welcome = () => {
+interface WelcomeProps {
+  searchTerm: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+  handleClick: () => void;
+}
+
+const Welcome = ({ searchTerm, setSearchTerm, handleClick }: WelcomeProps) => {
   const router = useRouter();
   const [activeJobType, setActiveJobType] = useState<string>("Full-time");
-  const [searchText, setSearchText] = useState<string>();
 
   const styles = getStyles({ activeJobType });
-
-  const handleChange = () => {
-    setSearchText(searchText);
-  };
 
   return (
     <View>
@@ -38,12 +38,12 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value={searchText}
-            onChange={() => {}}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.nativeEvent.text)}
             placeholder="What are you looking for?"
           />
         </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
           <Image
             source={icons.search}
             resizeMode="contain"

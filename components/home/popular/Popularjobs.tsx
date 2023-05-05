@@ -14,9 +14,11 @@ import { COLORS, SIZES } from "../../../constants";
 import useFetch from "../../../hooks/useFetch";
 
 const Popularjobs = () => {
+  const popularJobsSearch = "React Developer";
+
   const router = useRouter();
   const { data, isLoading, error } = useFetch("search", {
-    query: "React Developer",
+    query: popularJobsSearch,
     num_pages: 1,
   });
 
@@ -31,7 +33,11 @@ const Popularjobs = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}> Popular Jobs </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            router.push(`/search/${popularJobsSearch}`);
+          }}
+        >
           <Text style={styles.headerBtn}> Show All </Text>
         </TouchableOpacity>
       </View>
